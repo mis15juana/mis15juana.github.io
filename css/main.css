@@ -263,3 +263,46 @@ select.form-control {
 .footer-text.visible::after {
   width: 100%;
 }
+
+/* Floating Music Button */
+.music-control-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: rgba(194, 176, 138, 0.9);
+  color: #2c3325;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  z-index: 1000;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--text-accent);
+  animation: musicPulse 2s infinite;
+}
+
+.music-control-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.music-control-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--btn-hover);
+}
+
+@keyframes musicPulse {
+  0% { box-shadow: 0 0 0 0 rgba(194, 176, 138, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(194, 176, 138, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(194, 176, 138, 0); }
+}
+
+.music-control-btn.music-playing {
+  animation: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-accent);
+  border-color: rgba(194, 176, 138, 0.3);
+}

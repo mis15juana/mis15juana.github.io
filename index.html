@@ -17,14 +17,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Stylesheets with Cache Busting v=1.2 -->
+    <link rel="stylesheet" href="css/reset.css?v=1.2">
+    <link rel="stylesheet" href="css/variables.css?v=1.2">
+    <link rel="stylesheet" href="css/main.css?v=1.2">
+    <link rel="stylesheet" href="css/animations.css?v=1.2">
+    <link rel="stylesheet" href="css/responsive.css?v=1.2">
 </head>
 <body>
+    <!-- Botón Flotante para control de música -->
+    <button id="music-btn" class="music-control-btn" onclick="toggleMusic(event)" aria-label="Controlar música">
+        <!-- Icono de Play -->
+        <svg id="music-icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <!-- Icono de Pausa -->
+        <svg id="music-icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+    </button>
+
+    <!-- Reproductor de Audio -->
+    <audio id="bg-music" loop>
+        <source src="musica/musica.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <!-- Fondos florales -->
         <img src="fondos florales/floral-tl.png" alt="" class="floral floral-top-left" onerror="this.style.display='none'">
@@ -71,7 +88,7 @@
             </div>
 
             <!-- Botón para agendar en Google Calendar (Offset UTC-3: 20:30 hs a 04:30 hs Argentina = 23:30 hs a 07:30 hs UTC) -->
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+15+Juana+%F0%9F%8E%89&dates=20260708T233000Z%2F20260709T073000Z&details=%C2%A1Te+espero+para+celebrar+mis+15+a%C3%B1os%21&location=Boro+Eventos%2C+Av.+Pres.+Per%C3%B3n+7795%2C+Ituzaing%C3%B3" target="_blank" class="btn btn-secondary" style="width: auto; padding: 10px 25px; font-size: 0.9rem;">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+15+Juana+%F0%9F%8E%89&dates=20260708T233000Z%2F20260709T073000Z&details=%C2%A1Te+espero+para+celebrar+mis+15+a%C3%B9os%21&location=Boro+Eventos%2C+Av.+Pres.+Per%C3%B3n+7795%2C+Ituzaing%C3%B3" target="_blank" class="btn btn-secondary" style="width: auto; padding: 10px 25px; font-size: 0.9rem;">
                 Agendar en mi calendario
             </a>
         </section>
@@ -190,10 +207,11 @@
         </footer>
     </div>
 
-    <!-- Scripts -->
-    <script src="js/countdown.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/rsvp.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Scripts with Cache Busting v=1.2 -->
+    <script src="js/countdown.js?v=1.2"></script>
+    <script src="js/animations.js?v=1.2"></script>
+    <script src="js/rsvp.js?v=1.2"></script>
+    <script src="js/music.js?v=1.2"></script>
+    <script src="js/main.js?v=1.2"></script>
 </body>
 </html>
