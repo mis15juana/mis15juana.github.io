@@ -1,6 +1,5 @@
 // rsvp.js
 
-// Almacena si asiste o no (true / false)
 let attending = null;
 
 function selectAttendance(isAttending) {
@@ -8,57 +7,70 @@ function selectAttendance(isAttending) {
     
     const btnYes = document.getElementById('btn-rsvp-yes');
     const btnNo = document.getElementById('btn-rsvp-no');
-    const fieldsContainer = document.getElementById('rsvp-fields-container');
-    const detailsContainer = document.getElementById('attendance-details');
-    const nameInput = document.getElementById('name');
+    
+    const yesContainer = document.getElementById('rsvp-yes-container');
+    const noContainer = document.getElementById('rsvp-no-container');
+    
+    const nameYes = document.getElementById('name-yes');
+    const nameNo = document.getElementById('name-no');
     const guestsSelect = document.getElementById('guests');
     
-    // Guardar el estado en el campo oculto
+    // Almacenar el estado
     document.getElementById('attendance').value = isAttending ? "yes" : "no";
 
-    // Modificar estilos de los botones activos
     if (isAttending) {
         btnYes.classList.add('btn-active');
         btnYes.classList.remove('btn-secondary');
         btnNo.classList.add('btn-secondary');
         btnNo.classList.remove('btn-active');
         
-        // Mostrar todos los campos
-        fieldsContainer.style.display = 'block';
-        detailsContainer.style.display = 'block';
+        // Mostrar form de Sí
+        yesContainer.style.display = 'block';
+        noContainer.style.display = 'none';
         
-        // Hacer requeridos los campos de asistencia
-        nameInput.required = true;
+        // Configurar requeridos
+        nameYes.required = true;
         guestsSelect.required = true;
+        nameNo.required = false;
+        
+        // Limpiar campos del No
+        nameNo.value = "";
+        document.getElementById('decline-message').value = "";
     } else {
         btnNo.classList.add('btn-active');
         btnNo.classList.remove('btn-secondary');
         btnYes.classList.add('btn-secondary');
         btnYes.classList.remove('btn-active');
         
-        // Mostrar solo el campo de Nombre y el botón para enviar
-        fieldsContainer.style.display = 'block';
-        detailsContainer.style.display = 'none';
+        // Mostrar form de No
+        noContainer.style.display = 'block';
+        yesContainer.style.display = 'none';
         
-        // Quitar requeridos de los campos que se ocultaron
-        nameInput.required = true;
+        // Configurar requeridos
+        nameNo.required = true;
+        nameYes.required = false;
         guestsSelect.required = false;
-        guestsSelect.value = ""; // Limpiar selección
-        document.getElementById('guest-names-container').innerHTML = ''; // Limpiar nombres dinámicos
+        
+        // Limpiar campos del Sí
+        nameYes.value = "";
+        guestsSelect.value = "";
+        document.getElementById('guest-names-container').innerHTML = '';
+        document.getElementById('diet').value = "";
     }
 
-    // Scroll suave hacia los campos para mejor UX en móviles
+    // Scroll suave hacia los campos abiertos
     setTimeout(() => {
-        fieldsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        const targetContainer = isAttending ? yesContainer : noContainer;
+        targetContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
 }
 
 function updateGuestInputs() {
     const quantity = parseInt(document.getElementById('guests').value);
     const container = document.getElementById('guest-names-container');
-    container.innerHTML = ''; // Limpiar campos anteriores
+    container.innerHTML = ''; // Limpiar anteriores
 
-    if (quantity > 1) { // Empezamos desde el invitado 2, ya que el invitado 1 es el titular
+    if (quantity > 1) {
         const title = document.createElement('p');
         title.style.fontSize = '0.9rem';
         title.style.color = 'var(--text-accent)';
@@ -83,7 +95,6 @@ function updateGuestInputs() {
 function submitRSVP(event) {
     event.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
     const hostPhoneNumber = "5491164627109"; 
     let message = "";
     
@@ -92,26 +103,39 @@ function submitRSVP(event) {
         return;
     }
 
-    if (!name) {
-        alert("Por favor, completa tu nombre.");
-        return;
-    }
-
     if (attending === false) {
+        const nameNo = document.getElementById('name-no').value.trim();
+        const declineMsg = document.getElementById('decline-message').value.trim();
+
+        if (!nameNo) {
+            alert("Por favor, completa tu nombre.");
+            return;
+        }
+
         message = `¡Hola Juana! Quería avisarte que lamentablemente no podré asistir a tus 15. \n\n` +
-                  `👤 Nombre: ${name}\n\n` +
-                  `¡Te deseo una noche hermosa y que disfrutes muchísimo! 🎉`;
+                  `👤 Nombre: ${nameNo}\n`;
+        
+        if (declineMsg) {
+            message += `💬 Mensaje: "${declineMsg}"\n`;
+        }
+        
+        message += `\n¡Te deseo una noche hermosa y que disfrutes muchísimo! 🎉`;
     } else {
+        const nameYes = document.getElementById('name-yes').value.trim();
         const guestsSelect = document.getElementById('guests').value;
         const diet = document.getElementById('diet').value.trim() || 'Ninguna';
+
+        if (!nameYes) {
+            alert("Por favor, completa tu nombre.");
+            return;
+        }
 
         if (!guestsSelect) {
             alert("Por favor, selecciona la cantidad de personas.");
             return;
         }
 
-        // Recolectar nombres de los invitados (Invitado 1 es el titular, el resto son acompañantes)
-        let guestNamesText = `  1. ${name} (Titular)\n`;
+        let guestNamesText = `  1. ${nameYes} (Titular)\n`;
         const nameInputs = document.querySelectorAll('.guest-name-input');
         nameInputs.forEach((input, index) => {
             guestNamesText += `  ${index + 2}. ${input.value.trim()}\n`;

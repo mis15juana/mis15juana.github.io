@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Countdown
     // Date: 8 de Julio de 2026, 20:00 hs Argentina
-    initCountdown('2026-07-08T20:00:00-03:00');
+    initCountdown('2026-07-08T20:30:00-03:00');
     
     // Initialize Scroll Animations
     initScrollAnimations();

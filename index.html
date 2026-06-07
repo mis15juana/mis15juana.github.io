@@ -36,7 +36,7 @@
         <section class="hero fade-in">
             <h2 class="title-large" style="margin-bottom: 0;">MIS XV</h2>
             <h1 class="font-signature name-appear">Juana</h1>
-            <div class="subtitle-cursive">¡Te invito a mis XV!</div>
+            <div class="subtitle-cursive">¡Te invito a mis 15!</div>
             
             <div class="scroll-arrow-container">
                 <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -48,7 +48,7 @@
         <!-- 2) Date Section & Countdown & Add to Calendar -->
         <section class="section fade-in" id="date-section">
             <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Agendá la fecha</h3>
-            <p style="font-size: 2rem; font-family: var(--font-primary); margin-bottom: var(--spacing-md);">8 de Julio</p>
+            <p style="font-size: 2rem; font-family: var(--font-primary); margin-bottom: var(--spacing-md);">8 de Julio | 20:30 hs</p>
             
             <!-- Contador -->
             <div class="countdown-container">
@@ -70,8 +70,8 @@
                 </div>
             </div>
 
-            <!-- Botón para agendar en Google Calendar (Offset UTC-3 para Argentina) -->
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+15+Juana+%F0%9F%8E%89&dates=20260708T230000Z%2F20260709T080000Z&details=%C2%A1Te+espero+para+celebrar+mis+15+a%C3%B9os%21&location=Boro+Eventos%2C+Av.+Pres.+Per%C3%B3n+7795%2C+Ituzaing%C3%B3" target="_blank" class="btn btn-secondary" style="width: auto; padding: 10px 25px; font-size: 0.9rem;">
+            <!-- Botón para agendar en Google Calendar (Offset UTC-3: 20:30 hs a 04:30 hs Argentina = 23:30 hs a 07:30 hs UTC) -->
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+15+Juana+%F0%9F%8E%89&dates=20260708T233000Z%2F20260709T073000Z&details=%C2%A1Te+espero+para+celebrar+mis+15+a%C3%B1os%21&location=Boro+Eventos%2C+Av.+Pres.+Per%C3%B3n+7795%2C+Ituzaing%C3%B3" target="_blank" class="btn btn-secondary" style="width: auto; padding: 10px 25px; font-size: 0.9rem;">
                 Agendar en mi calendario
             </a>
         </section>
@@ -79,7 +79,6 @@
         <!-- 3) Location Section: Dónde nos encontramos -->
         <section class="section fade-in" id="location-section">
             <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Dónde nos encontramos</h3>
-            <p style="margin-bottom: var(--spacing-sm); font-size: 1.2rem; letter-spacing: 0.05em; color: var(--text-accent);"><strong>Miércoles 8 de Julio — 20:00 hs</strong></p>
             <p style="margin-bottom: var(--spacing-sm);"><strong>Boro Eventos</strong></p>
             <p style="margin-bottom: var(--spacing-md); font-size: 0.9rem;">Av. Pres. Perón 7795, B1714 Ituzaingó<br>Provincia de Buenos Aires</p>
             
@@ -137,36 +136,50 @@
                 <!-- Campo oculto para almacenar la elección -->
                 <input type="hidden" id="attendance" value="">
 
-                <!-- Sección del formulario que se expande dinámicamente -->
-                <div id="rsvp-fields-container" style="display: none;">
+                <!-- Sección para SÍ ASISTIRÁ (Se despliegan las opciones anteriores) -->
+                <div id="rsvp-yes-container" style="display: none;">
                     <div class="form-group">
-                        <label for="name">Tu Nombre y Apellido (o Familia)</label>
-                        <input type="text" id="name" class="form-control" placeholder="Ej: Familia Pérez">
+                        <label for="name-yes">Tu Nombre y Apellido (o Familia)</label>
+                        <input type="text" id="name-yes" class="form-control" placeholder="Ej: Familia Pérez">
                     </div>
 
-                    <div id="attendance-details" style="display: none;">
-                        <div class="form-group">
-                            <label for="guests">Cantidad de personas a asistir</label>
-                            <select id="guests" class="form-control" onchange="updateGuestInputs()">
-                                <option value="" disabled selected>Selecciona cantidad</option>
-                                <option value="1">1 Persona</option>
-                                <option value="2">2 Personas</option>
-                                <option value="3">3 Personas</option>
-                                <option value="4">4 Personas</option>
-                                <option value="5">5 Personas</option>
-                            </select>
-                        </div>
-
-                        <!-- Contenedor dinámico para nombres de los invitados adicionales -->
-                        <div id="guest-names-container" style="margin-top: 15px;"></div>
-                        
-                        <div class="form-group" style="margin-top: 15px;">
-                            <label for="diet">Restricciones Alimentarias Generales</label>
-                            <input type="text" id="diet" class="form-control" placeholder="Ej: Invitado 1 es celíaco, el resto ninguna">
-                        </div>
+                    <div class="form-group">
+                        <label for="guests">Cantidad de personas a asistir</label>
+                        <select id="guests" class="form-control" onchange="updateGuestInputs()">
+                            <option value="" disabled selected>Selecciona cantidad</option>
+                            <option value="1">1 Persona</option>
+                            <option value="2">2 Personas</option>
+                            <option value="3">3 Personas</option>
+                            <option value="4">4 Personas</option>
+                            <option value="5">5 Personas</option>
+                        </select>
                     </div>
 
-                    <button type="submit" class="btn btn-pulse">Confirmar por WhatsApp</button>
+                    <!-- Contenedor dinámico para nombres de los acompañantes -->
+                    <div id="guest-names-container" style="margin-top: 15px;"></div>
+                    
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label for="diet">Restricciones Alimentarias Generales</label>
+                        <input type="text" id="diet" class="form-control" placeholder="Ej: Invitado 1 es celíaco, el resto ninguna">
+                    </div>
+
+                    <button type="submit" class="btn btn-pulse">Confirmar asistencia por WhatsApp</button>
+                </div>
+
+                <!-- Sección para NO ASISTIRÁ (Se despliega confirmación de inasistencia) -->
+                <div id="rsvp-no-container" style="display: none;">
+                    <p style="margin-bottom: var(--spacing-md); color: var(--text-accent); font-size: 0.95rem;">¡Qué pena que no puedas venir! Por favor, ingresá tu nombre para enviar la inasistencia:</p>
+                    <div class="form-group">
+                        <label for="name-no">Nombre y Apellido</label>
+                        <input type="text" id="name-no" class="form-control" placeholder="Ej: Juan Gómez">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="decline-message">Dejale un mensajito a Juana (opcional)</label>
+                        <textarea id="decline-message" class="form-control" rows="3" placeholder="Ej: ¡Que pases un hermoso día!"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-pulse">Confirmar inasistencia por WhatsApp</button>
                 </div>
             </form>
         </section>

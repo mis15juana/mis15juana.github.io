@@ -10,6 +10,16 @@
   
   .font-signature {
     font-size: 7.5rem;
+    margin: 40px auto 30px auto; /* Mas espacio vertical para que no se encime */
+  }
+  
+  .subtitle-cursive {
+    font-size: 1.8rem;
+    margin-top: 25px; /* Separacion de la invitacion */
+  }
+  
+  .scroll-arrow-container {
+    padding-bottom: 60px; /* Flecha mas arriba */
   }
   
   .countdown-box {
