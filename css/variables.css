@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'JuanaCustomFont';
+  src: url('../fuentes jsc/juana_name.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Colors based on the reference image */
+  --bg-color: #4a5341; /* Olive green background */
+  --text-primary: #f4f1e1; /* Cream/off-white for main text */
+  --text-accent: #c2b08a; /* Beige for accents and lines */
+  --btn-bg: #c2b08a;
+  --btn-text: #2c3325;
+  --btn-hover: #b09e78;
+  
+  /* Typography */
+  /* Elegant serif for primary headings */
+  --font-primary: 'Playfair Display', serif;
+  /* Script/Cursive font for accents like 'the' */
+  --font-secondary: 'Great Vibes', cursive;
+  /* Signature font for 'Juana' */
+  --font-signature: 'JuanaCustomFont', sans-serif;
+  /* Clean sans-serif for numbers/details */
+  --font-sans: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Transitions */
+  --transition-smooth: all 0.4s ease-in-out;
+}

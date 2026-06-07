@@ -1,0 +1,233 @@
+/* main.css */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px; /* Mobile first, restricted max-width for web */
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Typography styles */
+.text-accent {
+  color: var(--text-accent);
+}
+
+.font-script {
+  font-family: var(--font-secondary);
+  font-size: 3.5rem;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.title-large {
+  font-size: 3rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-sm);
+}
+
+.date-text {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  letter-spacing: 0.4em;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.venue-text {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.font-signature {
+  font-family: var(--font-signature);
+  font-size: 9.5rem;
+  color: var(--text-accent);
+  display: block;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  transform: rotate(-8deg); /* Leve inclinación elegante */
+  font-weight: normal;
+  line-height: 0.95;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: var(--spacing-xl) 0;
+}
+
+/* Sections */
+.section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-accent);
+}
+
+/* Countdown */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  font-family: var(--font-sans);
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(194, 176, 138, 0.3);
+  min-width: 70px;
+}
+
+.countdown-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-accent);
+}
+
+/* Map */
+.map-container {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  border: 1px solid rgba(194, 176, 138, 0.3);
+}
+
+/* Form */
+.form-group {
+  margin-bottom: var(--spacing-md);
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--text-accent);
+  color: var(--text-primary);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(194, 176, 138, 0.5);
+}
+
+select.form-control {
+  background-color: var(--bg-color); /* To hide default arrow in some browsers and ensure text is visible */
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+  width: 100%;
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--btn-bg);
+  color: var(--text-accent);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(194, 176, 138, 0.1);
+  color: var(--text-primary);
+}
+
+/* Florals */
+.floral {
+  position: absolute;
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floral-top-left { top: -50px; left: -50px; width: 350px; }
+.floral-top-right { top: -50px; right: -50px; width: 350px; }
+.floral-bottom-left { bottom: -50px; left: -50px; width: 200px; }
+.floral-bottom-right { bottom: -50px; right: -50px; width: 300px; }
+
+/* Footer Animation and Text */
+.footer-text {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  display: inline-block;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.footer-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--text-accent);
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-text.visible::after {
+  width: 100%;
+}

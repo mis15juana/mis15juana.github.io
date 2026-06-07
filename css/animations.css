@@ -1,0 +1,53 @@
+/* animations.css */
+
+/* Initial state for fade-in elements */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Active state triggered by JS */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Continuous subtle floating animation for florals */
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(5px, 5px) rotate(2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.floral {
+  animation: float 8s infinite ease-in-out;
+}
+
+.floral-top-left {
+  animation-duration: 7s;
+}
+
+.floral-top-right {
+  animation-duration: 9s;
+  animation-direction: alternate;
+}
+
+.floral-bottom-left {
+  animation-duration: 11s;
+}
+
+.floral-bottom-right {
+  animation-duration: 10s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}

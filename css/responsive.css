@@ -1,0 +1,53 @@
+/* responsive.css */
+@media (max-width: 480px) {
+  .title-large {
+    font-size: 2.2rem;
+  }
+  
+  .font-script {
+    font-size: 2.8rem;
+  }
+  
+  .font-signature {
+    font-size: 7.5rem;
+  }
+  
+  .countdown-box {
+    min-width: 60px;
+    padding: 10px;
+  }
+  
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+  
+  .floral-top-left {
+    width: 280px;
+  }
+  
+  .floral-top-right {
+    width: 280px;
+  }
+  
+  .floral-bottom-left {
+    width: 180px;
+  }
+  
+  .floral-bottom-right {
+    width: 250px;
+  }
+  
+  .footer-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 800px;
+  }
+  
+  .countdown-box {
+    min-width: 90px;
+  }
+}
