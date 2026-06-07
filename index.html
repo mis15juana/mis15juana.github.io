@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis 15 Juana</title>
     
+    <!-- Meta tags for sharing (Open Graph / WhatsApp) -->
     <meta property="og:title" content="¡Mis 15 Juana!">
     <meta property="og:description" content="Te invito a festejar conmigo. ¡No podés faltar!">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mis15juana.github.io/assets/img/og-image.jpg">
+    <meta property="og:image" content="https://mis15juana.github.io/fondos florales/floral-br.png">
     <meta property="og:url" content="https://mis15juana.github.io">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Updated font for 'Juana' to Monsieur La Doulaise which is thinner and more like the reference signature -->
-    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Great+Vibes&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/reset.css">
@@ -26,19 +26,16 @@
 </head>
 <body>
     <div class="container">
-        <!-- Fondos florales. Asegurate de que los archivos se llamen así y estén en la carpeta correspondiente -->
-        <!-- Si la carpeta está en la raíz, cambia 'assets/img/' por el nombre de tu carpeta -->
+        <!-- Fondos florales -->
         <img src="fondos florales/floral-tl.png" alt="" class="floral floral-top-left" onerror="this.style.display='none'">
         <img src="fondos florales/floral-tr.png" alt="" class="floral floral-top-right" onerror="this.style.display='none'">
         <img src="fondos florales/floral-bl.png" alt="" class="floral floral-bottom-left" onerror="this.style.display='none'">
         <img src="fondos florales/floral-br.png" alt="" class="floral floral-bottom-right" onerror="this.style.display='none'">
 
-        <!-- Hero Section -->
+        <!-- 1) Hero Section: MIS XV, Juana, Frase de Invitacion -->
         <section class="hero fade-in">
             <h2 class="title-large" style="margin-bottom: 0;">MIS XV</h2>
-            
             <h1 class="font-signature name-appear">Juana</h1>
-            
             <div class="subtitle-cursive">¡Te invito a mis XV!</div>
             
             <div class="scroll-arrow-container">
@@ -48,9 +45,12 @@
             </div>
         </section>
 
-        <!-- Countdown Section -->
-        <section class="section fade-in" id="countdown-section">
-            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Faltan</h3>
+        <!-- 2) Date Section & Countdown & Add to Calendar -->
+        <section class="section fade-in" id="date-section">
+            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Agendá la fecha</h3>
+            <p style="font-size: 2rem; font-family: var(--font-primary); margin-bottom: var(--spacing-md);">8 de Julio</p>
+            
+            <!-- Contador -->
             <div class="countdown-container">
                 <div class="countdown-box">
                     <span class="countdown-number" id="cd-days">00</span>
@@ -69,12 +69,17 @@
                     <span class="countdown-label">Seg</span>
                 </div>
             </div>
+
+            <!-- Botón para agendar en Google Calendar (Offset UTC-3 para Argentina) -->
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+15+Juana+%F0%9F%8E%89&dates=20260708T230000Z%2F20260709T080000Z&details=%C2%A1Te+espero+para+celebrar+mis+15+a%C3%B9os%21&location=Boro+Eventos%2C+Av.+Pres.+Per%C3%B3n+7795%2C+Ituzaing%C3%B3" target="_blank" class="btn btn-secondary" style="width: auto; padding: 10px 25px; font-size: 0.9rem;">
+                Agendar en mi calendario
+            </a>
         </section>
 
-        <!-- Location Section -->
+        <!-- 3) Location Section: Dónde nos encontramos -->
         <section class="section fade-in" id="location-section">
-            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Fiesta</h3>
-            <p style="margin-bottom: var(--spacing-sm); font-size: 1.2rem; letter-spacing: 0.05em; color: var(--text-accent);"><strong>8 de Julio de 2026 — 20:00 hs</strong></p>
+            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Dónde nos encontramos</h3>
+            <p style="margin-bottom: var(--spacing-sm); font-size: 1.2rem; letter-spacing: 0.05em; color: var(--text-accent);"><strong>Miércoles 8 de Julio — 20:00 hs</strong></p>
             <p style="margin-bottom: var(--spacing-sm);"><strong>Boro Eventos</strong></p>
             <p style="margin-bottom: var(--spacing-md); font-size: 0.9rem;">Av. Pres. Perón 7795, B1714 Ituzaingó<br>Provincia de Buenos Aires</p>
             
@@ -89,58 +94,84 @@
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-            <!-- Enlace directo a Google Maps actualizado -->
             <a href="https://www.google.com/maps/place/Av.+Pres.+Per%C3%B3n+7795,+B1714+Ituzaing%C3%B3,+Provincia+de+Buenos+Aires/" target="_blank" class="btn btn-secondary">Cómo llegar</a>
         </section>
 
-        <!-- Dress Code Section -->
+        <!-- 4) A tener en cuenta: Dress code & colores a evitar -->
         <section class="section fade-in">
-            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Dress Code</h3>
-            <p style="font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase;">Elegante</p>
+            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">A tener en cuenta</h3>
+            <p style="font-size: 1rem; color: var(--text-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;">Dress Code</p>
+            <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: var(--spacing-md);">Elegante</p>
+            
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(194, 176, 138, 0.2); padding: 15px 20px; border-radius: 8px; max-width: 450px; margin: 0 auto;">
+                <p style="font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-accent); text-transform: uppercase; margin-bottom: 5px;">Colores a evitar</p>
+                <p style="font-size: 1rem; opacity: 0.95;">Por favor, evitar vestimenta de colores claros y tonos verdes.</p>
+            </div>
         </section>
 
-        <!-- Gifts / CBU Section -->
+        <!-- 5) Regalos: Frase amigable y CBU -->
         <section class="section fade-in">
-            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Regalos</h3>
-            <p style="margin-bottom: var(--spacing-md);">Si deseás hacerme un regalo, podés colaborar con mi alcancía:</p>
-            <div style="background: rgba(255,255,255,0.05); padding: var(--spacing-md); border-radius: 8px; border: 1px dashed var(--text-accent);">
-                <p style="font-size: 0.9rem; color: var(--text-accent); margin-bottom: 5px;">CBU / ALIAS</p>
-                <p style="font-family: monospace; font-size: 1.2rem; margin-bottom: 10px;" id="cbu-text">555666777888</p>
+            <h3 class="section-title text-accent" style="font-family: var(--font-primary);">¿Querés hacerme un regalo?</h3>
+            <p style="margin-bottom: var(--spacing-lg); max-width: 450px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+                Tu presencia es lo más importante. Pero si además querés regalarme algo...
+            </p>
+            <div style="background: rgba(255,255,255,0.05); padding: var(--spacing-md); border-radius: 8px; border: 1px dashed var(--text-accent); max-width: 450px; margin: 0 auto;">
+                <p style="font-size: 0.8rem; color: var(--text-accent); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.05em;">CBU / ALIAS</p>
+                <p style="font-family: monospace; font-size: 1.25rem; margin-bottom: 15px;" id="cbu-text">555666777888</p>
                 <button class="btn btn-secondary" style="padding: 8px 15px; font-size: 0.8rem; width: auto;" onclick="copyCBU()">Copiar CBU</button>
             </div>
         </section>
 
-        <!-- RSVP Section -->
+        <!-- 6) RSVP Section -->
         <section class="section fade-in">
             <h3 class="section-title text-accent" style="font-family: var(--font-primary);">Asistencia</h3>
-            <p style="margin-bottom: var(--spacing-md);">Confirmá tu presencia antes del 26 de Junio.</p>
+            <p style="margin-bottom: var(--spacing-lg);">Confirmá tu presencia antes del 26 de Junio.</p>
             
             <form id="rsvp-form" onsubmit="submitRSVP(event)">
-                <div class="form-group">
-                    <label for="guests">Cantidad de personas a asistir</label>
-                    <select id="guests" class="form-control" required onchange="updateGuestInputs()">
-                        <option value="" disabled selected>Selecciona cantidad</option>
-                        <option value="1">1 Persona</option>
-                        <option value="2">2 Personas</option>
-                        <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
-                        <option value="5">5 Personas</option>
-                        <option value="0">No podremos asistir</option>
-                    </select>
+                <!-- Selector inicial: Asistir o No asistir -->
+                <div class="rsvp-options" style="display: flex; gap: 15px; margin-bottom: var(--spacing-lg); justify-content: center;">
+                    <button type="button" id="btn-rsvp-yes" class="btn btn-secondary" style="margin-top:0;" onclick="selectAttendance(true)">Sí, voy a asistir</button>
+                    <button type="button" id="btn-rsvp-no" class="btn btn-secondary" style="margin-top:0;" onclick="selectAttendance(false)">No podré asistir</button>
                 </div>
 
-                <!-- Contenedor dinámico para nombres de los invitados -->
-                <div id="guest-names-container" style="margin-top: 15px;"></div>
-                
-                <div class="form-group" style="margin-top: 15px;">
-                    <label for="diet">Restricciones Alimentarias Generales</label>
-                    <input type="text" id="diet" class="form-control" placeholder="Ej: Invitado 1 es celíaco, el resto ninguna">
+                <!-- Campo oculto para almacenar la elección -->
+                <input type="hidden" id="attendance" value="">
+
+                <!-- Sección del formulario que se expande dinámicamente -->
+                <div id="rsvp-fields-container" style="display: none;">
+                    <div class="form-group">
+                        <label for="name">Tu Nombre y Apellido (o Familia)</label>
+                        <input type="text" id="name" class="form-control" placeholder="Ej: Familia Pérez">
+                    </div>
+
+                    <div id="attendance-details" style="display: none;">
+                        <div class="form-group">
+                            <label for="guests">Cantidad de personas a asistir</label>
+                            <select id="guests" class="form-control" onchange="updateGuestInputs()">
+                                <option value="" disabled selected>Selecciona cantidad</option>
+                                <option value="1">1 Persona</option>
+                                <option value="2">2 Personas</option>
+                                <option value="3">3 Personas</option>
+                                <option value="4">4 Personas</option>
+                                <option value="5">5 Personas</option>
+                            </select>
+                        </div>
+
+                        <!-- Contenedor dinámico para nombres de los invitados adicionales -->
+                        <div id="guest-names-container" style="margin-top: 15px;"></div>
+                        
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="diet">Restricciones Alimentarias Generales</label>
+                            <input type="text" id="diet" class="form-control" placeholder="Ej: Invitado 1 es celíaco, el resto ninguna">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-pulse">Confirmar por WhatsApp</button>
                 </div>
-                
-                <button type="submit" class="btn btn-pulse">Confirmar por WhatsApp</button>
             </form>
         </section>
 
+        <!-- Footer -->
         <footer style="padding: var(--spacing-lg) 0; margin-top: var(--spacing-xl);">
             <span class="footer-text fade-in">¡Te espero para celebrar juntos!</span>
         </footer>
