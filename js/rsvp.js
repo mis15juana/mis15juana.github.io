@@ -4,7 +4,7 @@ let attending = null;
 
 // Configuración del listado automático en Google Sheets (Opcional, 100% gratuito)
 // Pega aquí la URL de tu Web App de Google Apps Script una vez que la hayas creado.
-const googleSheetWebAppUrl = ""; 
+const googleSheetWebAppUrl = "https://script.google.com/macros/s/AKfycbyNGqR_VnIPHsibxgBxNuzUDPQpiqNS6wYOZrOd6Jx7dkh-vbmOwH2pR6INiZgv9MwWCA/exec"; 
 
 function selectAttendance(isAttending) {
     attending = isAttending;
