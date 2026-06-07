@@ -67,7 +67,7 @@
 }
 
 .name-appear {
-  animation: delicateAppear 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: delicateAppear 4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
   opacity: 0; /* Starts hidden until animation triggers */
 }
 

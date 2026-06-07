@@ -54,27 +54,30 @@ body {
 
 .font-signature {
   font-family: var(--font-signature);
-  font-size: 9.5rem;
+  font-size: 13rem; /* Aumentado significativamente */
   color: var(--text-accent);
   display: block;
-  margin: 15px auto 0 auto; /* Reducido un poco para ajustar al nuevo diseño */
+  margin: 10px auto 0 auto;
   text-align: center;
   transform: rotate(-8deg); /* Leve inclinación elegante */
   font-weight: normal;
-  line-height: 0.95;
+  line-height: 0.85; /* Ajustado el alto de línea para el nuevo tamaño */
 }
 
 .subtitle-cursive {
   font-family: var(--font-secondary);
   font-size: 2.2rem;
-  color: var(--text-accent);
-  margin-top: 10px;
+  color: var(--text-primary); /* Cambiado a blanco/crema */
+  margin-top: 30px; /* Más abajo */
   letter-spacing: 0.05em;
 }
 
 .scroll-arrow-container {
-  margin-top: auto; /* Empuja el elemento al fondo de la sección 100vh */
-  padding-bottom: 10px;
+  position: absolute; /* Posicionamiento absoluto para que no dependa del flujo de texto */
+  bottom: 40px; /* Altura perfecta sobre el final de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .scroll-arrow {
@@ -91,10 +94,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly; /* Distribuye los textos de forma equilibrada por la pantalla */
   align-items: center;
   position: relative;
-  padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+  padding: 60px 20px 120px 20px; /* Margen inferior para no solapar con la flecha */
+  box-sizing: border-box;
 }
 
 /* Sections */
