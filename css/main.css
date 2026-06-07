@@ -57,11 +57,33 @@ body {
   font-size: 9.5rem;
   color: var(--text-accent);
   display: block;
-  margin: 30px auto 0 auto;
+  margin: 15px auto 0 auto; /* Reducido un poco para ajustar al nuevo diseño */
   text-align: center;
   transform: rotate(-8deg); /* Leve inclinación elegante */
   font-weight: normal;
   line-height: 0.95;
+}
+
+.subtitle-cursive {
+  font-family: var(--font-secondary);
+  font-size: 2.2rem;
+  color: var(--text-accent);
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+}
+
+.scroll-arrow-container {
+  margin-top: auto; /* Empuja el elemento al fondo de la sección 100vh */
+  padding-bottom: 10px;
+}
+
+.scroll-arrow {
+  color: var(--text-accent);
+  width: 35px;
+  height: 35px;
+  opacity: 0.8;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Hero Section */
@@ -72,7 +94,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-xl) 0 var(--spacing-md) 0;
 }
 
 /* Sections */
