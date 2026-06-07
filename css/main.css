@@ -74,7 +74,7 @@ body {
 
 .scroll-arrow-container {
   position: absolute; /* Posicionamiento absoluto para que no dependa del flujo de texto */
-  bottom: 40px; /* Altura perfecta sobre el final de la pantalla */
+  bottom: 50px; /* Altura perfecta sobre el final de la pantalla */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -92,6 +92,7 @@ body {
 /* Hero Section */
 .hero {
   min-height: 100vh;
+  min-height: 100svh; /* Huso de altura pequeña que descuenta la barra del navegador en iOS/Android */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; /* Distribuye los textos de forma equilibrada por la pantalla */
@@ -267,8 +268,8 @@ select.form-control {
 /* Floating Music Button */
 .music-control-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 35px;
+  right: 35px;
   background-color: rgba(194, 176, 138, 0.9);
   color: #2c3325;
   border-radius: 50%;

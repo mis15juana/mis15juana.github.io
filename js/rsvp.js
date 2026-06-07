@@ -2,6 +2,10 @@
 
 let attending = null;
 
+// Configuración del listado automático en Google Sheets (Opcional, 100% gratuito)
+// Pega aquí la URL de tu Web App de Google Apps Script una vez que la hayas creado.
+const googleSheetWebAppUrl = ""; 
+
 function selectAttendance(isAttending) {
     attending = isAttending;
     
@@ -15,7 +19,6 @@ function selectAttendance(isAttending) {
     const nameNo = document.getElementById('name-no');
     const guestsSelect = document.getElementById('guests');
     
-    // Almacenar el estado
     document.getElementById('attendance').value = isAttending ? "yes" : "no";
 
     if (isAttending) {
@@ -24,16 +27,13 @@ function selectAttendance(isAttending) {
         btnNo.classList.add('btn-secondary');
         btnNo.classList.remove('btn-active');
         
-        // Mostrar form de Sí
         yesContainer.style.display = 'block';
         noContainer.style.display = 'none';
         
-        // Configurar requeridos
         nameYes.required = true;
         guestsSelect.required = true;
         nameNo.required = false;
         
-        // Limpiar campos del No
         nameNo.value = "";
         document.getElementById('decline-message').value = "";
     } else {
@@ -42,23 +42,20 @@ function selectAttendance(isAttending) {
         btnYes.classList.add('btn-secondary');
         btnYes.classList.remove('btn-active');
         
-        // Mostrar form de No
         noContainer.style.display = 'block';
         yesContainer.style.display = 'none';
         
-        // Configurar requeridos
         nameNo.required = true;
         nameYes.required = false;
         guestsSelect.required = false;
         
-        // Limpiar campos del Sí
         nameYes.value = "";
         guestsSelect.value = "";
         document.getElementById('guest-names-container').innerHTML = '';
         document.getElementById('diet').value = "";
+        document.getElementById('music-suggestion').value = "";
     }
 
-    // Scroll suave hacia los campos abiertos
     setTimeout(() => {
         const targetContainer = isAttending ? yesContainer : noContainer;
         targetContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -68,7 +65,7 @@ function selectAttendance(isAttending) {
 function updateGuestInputs() {
     const quantity = parseInt(document.getElementById('guests').value);
     const container = document.getElementById('guest-names-container');
-    container.innerHTML = ''; // Limpiar anteriores
+    container.innerHTML = ''; 
 
     if (quantity > 1) {
         const title = document.createElement('p');
@@ -97,6 +94,7 @@ function submitRSVP(event) {
 
     const hostPhoneNumber = "5491164627109"; 
     let message = "";
+    let dataForSheet = {};
     
     if (attending === null) {
         alert("Por favor, selecciona si vas a asistir o no.");
@@ -120,10 +118,22 @@ function submitRSVP(event) {
         }
         
         message += `\n¡Te deseo una noche hermosa y que disfrutes muchísimo! 🎉`;
+
+        // Datos para planilla
+        dataForSheet = {
+            fecha: new Date().toLocaleString("es-AR", {timeZone: "America/Argentina/Buenos_Aires"}),
+            asistencia: "No asiste",
+            nombre: nameNo,
+            cantidad_personas: 0,
+            nombres_acompanantes: "",
+            restricciones: "",
+            musica: declineMsg // Guardamos el mensaje en el campo música de la planilla como nota
+        };
     } else {
         const nameYes = document.getElementById('name-yes').value.trim();
         const guestsSelect = document.getElementById('guests').value;
         const diet = document.getElementById('diet').value.trim() || 'Ninguna';
+        const musicSuggestion = document.getElementById('music-suggestion').value.trim() || 'Ninguna';
 
         if (!nameYes) {
             alert("Por favor, completa tu nombre.");
@@ -136,20 +146,47 @@ function submitRSVP(event) {
         }
 
         let guestNamesText = `  1. ${nameYes} (Titular)\n`;
+        let companionNames = [];
         const nameInputs = document.querySelectorAll('.guest-name-input');
         nameInputs.forEach((input, index) => {
-            guestNamesText += `  ${index + 2}. ${input.value.trim()}\n`;
+            const val = input.value.trim();
+            guestNamesText += `  ${index + 2}. ${val}\n`;
+            companionNames.push(val);
         });
 
         message = `¡Hola Juana! Confirmo asistencia a tus 15 años 🥳\n\n` +
                   `👥 Cantidad de personas: ${guestsSelect}\n` +
                   `Nombres de los invitados:\n${guestNamesText}\n` +
-                  `🍽️ Restricciones alimentarias: ${diet}\n\n` +
+                  `🍽️ Restricciones alimentarias: ${diet}\n` +
+                  `🎵 Canción sugerida: ${musicSuggestion}\n\n` +
                   `¡Nos vemos ahí para festejar! 🎉`;
+
+        // Datos para planilla
+        dataForSheet = {
+            fecha: new Date().toLocaleString("es-AR", {timeZone: "America/Argentina/Buenos_Aires"}),
+            asistencia: "Sí asiste",
+            nombre: nameYes,
+            cantidad_personas: guestsSelect,
+            nombres_acompanantes: companionNames.join(", "),
+            restricciones: diet,
+            musica: musicSuggestion
+        };
     }
 
+    // Si la URL de Google Sheets está configurada, enviamos los datos de fondo
+    if (googleSheetWebAppUrl) {
+        fetch(googleSheetWebAppUrl, {
+            method: 'POST',
+            mode: 'no-cors', // no-cors para evitar restricciones de preflight en Apps Script
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataForSheet)
+        }).catch(err => console.error("Error al enviar a Google Sheets:", err));
+    }
+
+    // Abrir WhatsApp inmediatamente
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${hostPhoneNumber}?text=${encodedMessage}`;
-
     window.open(whatsappUrl, '_blank');
 }

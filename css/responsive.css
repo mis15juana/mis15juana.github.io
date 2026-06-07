@@ -19,7 +19,7 @@
   }
   
   .scroll-arrow-container {
-    bottom: 60px; /* Subimos la flecha un poco más en pantallas de celular */
+    bottom: 100px; /* Subida significativa para sortear barra de safari/android */
   }
   
   .countdown-box {
