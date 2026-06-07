@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function copyCBU() {
     const cbuText = document.getElementById('cbu-text').innerText;
     navigator.clipboard.writeText(cbuText).then(() => {
-        alert("¡CBU copiado al portapapeles!");
+        alert("¡Alias copiado al portapapeles!");
     }).catch(err => {
         console.error('Error al copiar: ', err);
     });
